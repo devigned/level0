@@ -1,6 +1,6 @@
 # Change the 'YOUR_AZURE_VM_IP' to the publicIpAddress from the output of
 # `az vm create` command executed above
-server '13.64.246.35', port: your_port_num, roles: [:web, :app, :db], primary: true
+server '13.64.246.35', port: 22, roles: [:web, :app, :db], primary: true
 
 # Change the YOUR_GITHUB_NAME to your github user name
 set :repo_url,        'git@github.com:devigned/level0.git'
