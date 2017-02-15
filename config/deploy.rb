@@ -49,25 +49,17 @@ namespace :deploy do
     end
   end
 
-#   desc 'Initial Deploy'
-#   task :initial do
-#     on roles(:app) do
-#       before 'deploy:restart', 'puma:start'
-#       invoke 'deploy'
-#     end
-#   end
-
-#   desc 'Restart application'
-#   task :restart do
-#     on roles(:app), in: :sequence, wait: 5 do
-#       invoke 'puma:restart'
-#     end
-#   end
+  task :symlink_secrets do
+    on roles(:app) do
+      execute "rm -rf #{release_path}/config/secrets.yml" 
+      execute "ln -nfs ~/secrets.yml #{release_path}/config/secrets.yml"
+    end
+  end
 
   before :starting,     :check_revision
+  after  :finishing,    :symlink_secrets
   after  :finishing,    :compile_assets
   after  :finishing,    :cleanup
-#   after  :finishing,    :restart
 end
 
 # ps aux | grep puma    # Get puma pid
