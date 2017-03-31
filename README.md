@@ -1,24 +1,12 @@
-# README
+# Level 0: Deploy Your Rails App on Azure
+As part of a blog series on deploying a Rails application on Azure with increasing levels of DevOps maturity. See:
+https://medium.com/azure-developers/level-0-deploy-your-rails-app-on-azure-e7202828199
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## To Run
+- [Fork the repo](https://github.com/devigned/level0#fork-destination-box)
+- Run the following:
+  ```bash
+    git clone git@github.com:YOUR_USER/level0.git
+    bundle install
+    bundle exec rails server
+  ```
